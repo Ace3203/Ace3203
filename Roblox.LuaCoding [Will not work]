@@ -1,19 +1,5 @@
-
-local KillBlock = script.Parent
- 
-local function onTouch(otherPart)
-    -- Attempts to find a parent which is a model
-    local model = otherPart:FindFirstAncestorWhichIsA("Model")
-    
-    if model then
-        -- Attempts to find a humanoid part on the model
-        local human = model:FindFirstChildWhichIsA("Humanoid")
-     
-        if human then
-
-            human.Health = 0
-        end
-    end
-end
- 
-KillBlock.Touched:Connect(onTouch)
+script.Parent.Touched:connect(function(hit)
+       If hit and hit.Parent and hit.Parent:FindFristChild("Humanoid") then 
+             hit.Parent.Humanoid.Health = 0
+          end
+       end
