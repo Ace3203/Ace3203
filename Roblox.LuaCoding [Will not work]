@@ -1,0 +1,10 @@
+Print = ("Hello World!")
+
+local Part = Instance.new("Part")
+Part.Parent = game.Workspace
+Part.Tansparency = 0.5
+
+wait(5)
+
+Part.Anchoreed = false
+Part.CastShadow = false
