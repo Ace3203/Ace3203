@@ -10,11 +10,10 @@ local function onTouch(otherPart)
         local human = model:FindFirstChildWhichIsA("Humanoid")
      
         if human then
-            -- Kills the player
+
             human.Health = 0
         end
     end
 end
  
--- Attached the function to the block when it is touched
 KillBlock.Touched:Connect(onTouch)
