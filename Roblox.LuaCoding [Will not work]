@@ -1,10 +1,20 @@
-Print = ("Hello World!")
 
-local Part = Instance.new("Part")
-Part.Parent = game.Workspace
-Part.Tansparency = 0.5
-
-wait(5)
-
-Part.Anchoreed = false
-Part.CastShadow = false
+local KillBlock = script.Parent
+ 
+local function onTouch(otherPart)
+    -- Attempts to find a parent which is a model
+    local model = otherPart:FindFirstAncestorWhichIsA("Model")
+    
+    if model then
+        -- Attempts to find a humanoid part on the model
+        local human = model:FindFirstChildWhichIsA("Humanoid")
+     
+        if human then
+            -- Kills the player
+            human.Health = 0
+        end
+    end
+end
+ 
+-- Attached the function to the block when it is touched
+KillBlock.Touched:Connect(onTouch)
